@@ -24,3 +24,5 @@ git clone https://github.com/yourusername/air-quality-explorer.git
 cd air-quality-explorer/app
 streamlit run main.py
 
+⭐️ Web app:
+https://air-quality-explorer-5.streamlit.app
