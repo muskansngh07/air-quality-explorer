@@ -2,10 +2,8 @@ import pandas as pd
 import os
 
 def load_data():
-    path=os.path.join("data", "city_day.csv")
-    df=pd.read_csv(path,parse_dates=["Date"])
-    df.dropna(subset=["AQI"],inplace=True)
-    return df
+    path = os.path.join(os.path.dirname(__file__), "data", "city_day.csv")
+    return pd.read_csv(path, parse_dates=["Date"])
 
 def filter_data(df,city,start_date,end_date):
     df_city=df[df["City"]==city]
