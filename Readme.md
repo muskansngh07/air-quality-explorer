@@ -1,4 +1,4 @@
-AIR QUALITY EXPLORER
+AIR QUALITY EXPLORER: https://air-quality-explorer-5.streamlit.app
 
 A Streamlit dashboard to explore and compare air quality in Indian cities based on public dataset.
 
@@ -24,5 +24,3 @@ git clone https://github.com/yourusername/air-quality-explorer.git
 cd air-quality-explorer/app
 streamlit run main.py
 
-⭐️ Web app:
-https://air-quality-explorer-5.streamlit.app
