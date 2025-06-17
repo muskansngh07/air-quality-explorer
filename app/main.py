@@ -34,7 +34,7 @@ if filtered_df.empty:
     st.warning("No AQI data available for this city or date range.")
 else:
     avg_aqi=filtered_df["AQI"].mean()
-    most_common_category=filtered_df["AQI Bucket"].mode()[0]
+    most_common_category = filtered_df["AQI Category"].mode()[0]
     col1, col2=st.column(2)
     with col1:
         st.metric("Average AQI", f"{avg_aqi:2f}")
