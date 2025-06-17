@@ -4,19 +4,19 @@ A Streamlit dashboard to explore and compare air quality in Indian cities based 
 
 
 Features
-✨ City-wise AQI trends over time
-✨ Compare two cities side-by-side
-✨ Pollutant-wise bar charts
-✨ AQI Category pie charts 
-✨ Download filtered data vs CSV
+- City-wise AQI trends over time
+- Compare two cities side-by-side
+- Pollutant-wise bar charts
+- AQI Category pie charts 
+- Download filtered data vs CSV
 
 Dataset
 Uses ['city_data.csv](https://www.kaggle.com/datasets/rohanrao/air-quality-data-in-india)
 
 Tech Stack
-✨ Python, Streamlit
-✨ Pandas, Plotly
-✨ Github + Streamlit Cloud
+- Python, Streamlit
+- Pandas, Plotly
+- Github + Streamlit Cloud
 
 How to run locally:
 ```bash
