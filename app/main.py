@@ -35,7 +35,7 @@ if filtered_df.empty:
 else:
     avg_aqi=filtered_df["AQI"].mean()
     most_common_category = filtered_df["AQI Category"].mode()[0]
-    col1, col2=st.column(2)
+    col1, col2=st.columns(2)
     with col1:
         st.metric("Average AQI", f"{avg_aqi:2f}")
     with col2:
