@@ -1,17 +1,6 @@
 import os
 import pandas as pd
 
-def load_data():
-    path = os.path.join(os.path.dirname(__file__), "data", "city_day.csv")
-    df = pd.read_csv(path, parse_dates=["Date"])
-    df.dropna(subset=["City", "Date"], inplace=True)
-    df["AQI"] = df["AQI"].fillna(method="ffill").fillna(method="bfill")
-    if "AQI Category" not in df.columns or df["AQI Category"].isnull().all():
-        df["AQI Category"] = df["AQI"].apply(get_aqi_message)
-    else:
-        df["AQI Category"] = df["AQI Category"].fillna("Unknown")
-    return df
-
 def get_aqi_message(aqi):
     if pd.isna(aqi):
         return "Unknown"
@@ -27,3 +16,14 @@ def get_aqi_message(aqi):
         return "Very Unhealthy"
     else:
         return "Hazardous"
+
+def load_data():
+    path = os.path.join(os.path.dirname(__file__), "data", "city_day.csv")
+    df = pd.read_csv(path, parse_dates=["Date"])
+    df.dropna(subset=["City", "Date"], inplace=True)
+    df["AQI"] = df["AQI"].fillna(method="ffill").fillna(method="bfill")
+    if "AQI Category" not in df.columns or df["AQI Category"].isnull().all():
+        df["AQI Category"] = df["AQI"].apply(get_aqi_message)
+    else:
+        df["AQI Category"] = df["AQI Category"].fillna("Unknown")
+    return df
