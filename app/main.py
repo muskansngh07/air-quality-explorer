@@ -18,6 +18,9 @@ start=st.sidebar.date_input("Start Date",df["Date"].min().date())
 end=st.sidebar.date_input("End Date",df["Date"].max().date())
 
 filtered_df=filter_data(df,city, pd.to_datetime(start), pd.to_datetime(end))
+clean_only = st.sidebar.checkbox("Exclude rows with missing AQI", value=True)
+if clean_only:
+    filtered_df = filtered_df.dropna(subset=["AQI"])
 
 def categorize_aqi(aqi):
     if aqi <= 50:
