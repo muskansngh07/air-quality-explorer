@@ -27,3 +27,7 @@ def load_data():
     else:
         df["AQI Category"] = df["AQI Category"].fillna("Unknown")
     return df
+
+def filter_data(df, city, start_date, end_date):
+    df_city = df[df["City"] == city]
+    return df_city[(df_city["Date"] >= start_date) & (df_city["Date"] <= end_date)]
