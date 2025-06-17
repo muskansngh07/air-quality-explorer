@@ -27,7 +27,20 @@ if clean_only:
 missing_count = filtered_df["AQI"].isnull().sum()
 if missing_count > 0:
     st.warning(f"{missing_count} AQI values are missing in the selected range.")
-
+    
+#AQI summary
+st.header(f"Air Quality Overview for {city}")
+if filtered_df.empty:
+    st.warning("No AQI data available for this city or date range.")
+else:
+    avg_aqi=filtered_df["AQI"].mean()
+    most_common_category=filtered_df["AQI Bucket"].mode()[0]
+    col1, col2=st.column(2)
+    with col1:
+        st.metric("Average AQI", f"{avg_aqi:2f}")
+    with col2:
+        st.metric("Most Frequent Category", most_common_category)
+        
 # Add AQI category
 def categorize_aqi(aqi):
     if aqi <= 50:
