@@ -21,6 +21,9 @@ filtered_df=filter_data(df,city, pd.to_datetime(start), pd.to_datetime(end))
 clean_only = st.sidebar.checkbox("Exclude rows with missing AQI", value=True)
 if clean_only:
     filtered_df = filtered_df.dropna(subset=["AQI"])
+missing_count = filtered_df["AQI"].isnull().sum()
+if missing_count > 0:
+    st.warning(f"{missing_count} AQI values are missing in the selected range.")
 
 def categorize_aqi(aqi):
     if aqi <= 50:
