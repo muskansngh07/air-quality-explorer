@@ -27,19 +27,6 @@ if clean_only:
 missing_count = filtered_df["AQI"].isnull().sum()
 if missing_count > 0:
     st.warning(f"{missing_count} AQI values are missing in the selected range.")
-    
-#AQI summary
-st.header(f"Air Quality Overview for {city}")
-if filtered_df.empty:
-    st.warning("No AQI data available for this city or date range.")
-else:
-    avg_aqi=filtered_df["AQI"].mean()
-    most_common_category = filtered_df["AQI Category"].mode()[0]
-    col1, col2=st.columns(2)
-    with col1:
-        st.metric("Average AQI", f"{avg_aqi:2f}")
-    with col2:
-        st.metric("Most Frequent Category", most_common_category)
         
 # Add AQI category
 def categorize_aqi(aqi):
@@ -72,7 +59,7 @@ if not filtered_df.empty:
 
     # AQI Category Pie
     st.plotly_chart(plot_aqi_pie(filtered_df), use_container_width=True)
-
+        
     # Heatmap: AQI per day
     st.subheader("AQI Heatmap")
     heatmap_df = filtered_df.copy()
@@ -93,6 +80,20 @@ else:
     st.warning("No data available for selected city and date range.")
 
 st.markdown("---")
+
+#AQI summary
+st.header(f"Air Quality Overview for {city}")
+if filtered_df.empty:
+    st.warning("No AQI data available for this city or date range.")
+else:
+    avg_aqi=filtered_df["AQI"].mean()
+    most_common_category = filtered_df["AQI Category"].mode()[0]
+    col1, col2=st.columns(2)
+    with col1:
+        st.metric("Average AQI", f"{avg_aqi:2f}")
+    with col2:
+        st.metric("Most Frequent Category", most_common_category)
+        
 
 # City Comparison
 compare = st.sidebar.checkbox("Compare with another city")
