@@ -8,7 +8,7 @@ A Streamlit dashboard to explore and compare air quality in Indian cities based 
 - Compare two cities side-by-side
 - Pollutant-wise bar charts
 - AQI Category pie charts 
-- Download filtered data vs CSV
+- Download filtered data as CSV
 
 ⭐️ Dataset
 Uses ['city_data.csv](https://www.kaggle.com/datasets/rohanrao/air-quality-data-in-india)
